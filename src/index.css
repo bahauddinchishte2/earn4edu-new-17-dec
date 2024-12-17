@@ -1,0 +1,89 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Primary Colors */
+  --primary-50: #E6FFF4;
+  --primary-100: #B3FFE4;
+  --primary-200: #80FFD4;
+  --primary-300: #4DFFC4;
+  --primary-400: #33FEA8;
+  --primary-500: #1AE699;
+  --primary-600: #00CC88;
+  --primary-700: #00B377;
+  --primary-800: #009966;
+  --primary-900: #008055;
+
+  /* Secondary Colors */
+  --secondary-400: #A78BFA;
+  --secondary-500: #8B5CF6;
+  --secondary-600: #7C3AED;
+
+  /* Accent Colors */
+  --accent-400: #FB7185;
+  --accent-500: #F43F5E;
+  --accent-600: #E11D48;
+
+  /* Background Colors */
+  --bg-dark: #111827;
+  --bg-card: #1F2937;
+  --bg-card-hover: #374151;
+  --bg-gradient-start: #1E1B4B;
+  --bg-gradient-end: #111827;
+
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #94A3B8;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-gradient-to-b from-[var(--bg-gradient-start)] to-[var(--bg-gradient-end)] text-[var(--text-primary)];
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply relative inline-flex items-center justify-center px-8 py-3 font-semibold transition-all duration-200 ease-in-out hover:translate-x-[-4px] hover:translate-y-[-4px];
+  }
+
+  .btn-primary .btn-shadow {
+    @apply absolute inset-0 translate-x-[6px] translate-y-[6px] bg-[var(--secondary-600)];
+  }
+
+  .btn-primary .btn-base {
+    @apply absolute inset-0 bg-[var(--secondary-500)];
+  }
+
+  .btn-primary .btn-content {
+    @apply relative text-[var(--text-primary)] flex items-center;
+  }
+
+  .card {
+    @apply bg-[var(--bg-card)] p-8 hover:bg-[var(--bg-card-hover)] transition-colors duration-300;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-[var(--text-primary)] mb-6;
+  }
+
+  .section-description {
+    @apply text-[var(--text-secondary)] text-lg;
+  }
+
+  .gradient-text {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[var(--secondary-400)] to-[var(--primary-400)];
+  }
+}
+
+@layer utilities {
+  .container {
+    @apply max-w-7xl mx-auto;
+  }
+}
